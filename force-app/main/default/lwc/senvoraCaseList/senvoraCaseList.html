@@ -1,0 +1,53 @@
+<template>
+  <template lwc:if={hasCases}>
+    <ul class="case-grid" aria-label="Cases">
+      <template for:each={caseItems} for:item="caseItem">
+        <li key={caseItem.id} class="case-grid__item">
+          <button
+            type="button"
+            class={caseItem.className}
+            data-case-id={caseItem.id}
+            aria-pressed={caseItem.isSelected}
+            onclick={handleSelect}
+          >
+            <span class="slds-grid slds-grid_align-spread slds-gutters_x-small">
+              <span class="slds-text-title_bold"
+                >Case {caseItem.caseNumber}</span
+              >
+              <template lwc:if={caseItem.isSelected}>
+                <span class="selected-label">
+                  <lightning-icon
+                    icon-name="utility:check"
+                    size="xx-small"
+                  ></lightning-icon>
+                  Selected
+                </span>
+              </template>
+            </span>
+            <span class="case-subject slds-m-top_x-small"
+              >{caseItem.subject}</span
+            >
+            <span class="case-fields slds-m-top_small">
+              <span
+                ><span class="field-label">Status:</span>
+                {caseItem.status}</span
+              >
+              <span
+                ><span class="field-label">Priority:</span>
+                {caseItem.priority}</span
+              >
+            </span>
+          </button>
+        </li>
+      </template>
+    </ul>
+  </template>
+  <template lwc:else>
+    <p
+      class="slds-text-align_center slds-text-color_weak slds-p-around_large"
+      role="status"
+    >
+      No cases found.
+    </p>
+  </template>
+</template>

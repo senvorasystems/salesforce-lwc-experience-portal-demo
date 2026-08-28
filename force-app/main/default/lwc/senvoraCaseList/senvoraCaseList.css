@@ -1,0 +1,50 @@
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--lwc-spacingSmall, 0.75rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-card {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: var(--lwc-spacingMedium, 1rem);
+  border: 1px solid var(--lwc-colorBorder, #c9c9c9);
+  border-radius: var(--lwc-borderRadiusMedium, 0.25rem);
+  background: var(--lwc-colorBackgroundAlt, #fff);
+  text-align: left;
+}
+
+.case-card:hover,
+.case-card:focus-visible {
+  border-color: var(--lwc-brandAccessible, #0176d3);
+  box-shadow: 0 0 0 1px var(--lwc-brandAccessible, #0176d3);
+}
+
+.case-card_selected {
+  border-width: 2px;
+  border-color: var(--lwc-brandAccessible, #0176d3);
+}
+
+.case-subject,
+.case-fields {
+  display: block;
+}
+
+.case-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lwc-spacingMedium, 1rem);
+}
+
+.field-label,
+.selected-label {
+  font-weight: 700;
+}
+
+.selected-label lightning-icon {
+  margin-right: var(--lwc-spacingXxSmall, 0.25rem);
+}
