@@ -1,0 +1,45 @@
+<template>
+  <section class="slds-box slds-theme_default" aria-labelledby="cases-heading">
+    <h2
+      id="cases-heading"
+      class="slds-text-heading_medium slds-m-bottom_medium"
+    >
+      Cases
+    </h2>
+
+    <c-senvora-case-filters
+      onfilterchange={handleFilterChange}
+    ></c-senvora-case-filters>
+
+    <div class="slds-m-top_medium">
+      <template lwc:if={isLoading}>
+        <div class="slds-is-relative slds-p-vertical_x-large" role="status">
+          <lightning-spinner
+            alternative-text="Loading cases"
+            size="medium"
+          ></lightning-spinner>
+        </div>
+      </template>
+      <template lwc:elseif={hasError}>
+        <p class="slds-text-color_error slds-p-around_medium" role="alert">
+          Cases are temporarily unavailable.
+        </p>
+      </template>
+      <template lwc:elseif={hasCases}>
+        <c-senvora-case-list
+          cases={cases}
+          selected-case-id={selectedCaseId}
+          oncaseselect={handleCaseSelect}
+        ></c-senvora-case-list>
+      </template>
+      <template lwc:else>
+        <p
+          class="slds-text-align_center slds-text-color_weak slds-p-around_large"
+          role="status"
+        >
+          {emptyStateMessage}
+        </p>
+      </template>
+    </div>
+  </section>
+</template>
