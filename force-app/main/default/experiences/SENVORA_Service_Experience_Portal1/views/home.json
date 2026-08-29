@@ -1,0 +1,55 @@
+{
+  "appPageId": "ffcb799c-7f31-4afe-89d8-a960ba42f51d",
+  "componentName": "siteforce:sldsOneColLayout",
+  "dataProviders": [],
+  "id": "74b5a467-599c-487a-a2da-6438a21a6bb9",
+  "label": "Home",
+  "regions": [
+    {
+      "id": "4f8b8d21-a263-43be-b060-34fe2600b1a5",
+      "regionName": "header",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {},
+          "componentName": "c:senvoraServicePortal",
+          "id": "60161323-0bd9-42de-9b65-1444ff8fdf01",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "7befe098-95b2-483a-92db-2e12e537fc52",
+      "regionName": "content",
+      "type": "region"
+    },
+    {
+      "id": "e6f2ba41-9758-41ad-8dc6-34713d0d593a",
+      "regionName": "footer",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "customHeadTags": "",
+            "description": "",
+            "title": "Home"
+          },
+          "componentName": "forceCommunity:seoAssistant",
+          "id": "2504c710-ece2-4fd9-8e92-7a35ee6869a1",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "8b8faa15-2461-4d0d-bb62-b2a85a07de06",
+      "regionName": "sfdcHiddenRegion",
+      "type": "region"
+    }
+  ],
+  "themeLayoutType": "Inner",
+  "type": "view",
+  "viewType": "home"
+}

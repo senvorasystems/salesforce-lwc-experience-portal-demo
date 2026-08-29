@@ -1,0 +1,57 @@
+<template>
+  <section
+    class="slds-box slds-theme_default"
+    aria-labelledby="create-case-heading"
+  >
+    <h2
+      id="create-case-heading"
+      class="slds-text-heading_medium slds-m-bottom_medium"
+    >
+      Create case
+    </h2>
+
+    <template lwc:if={isSubmitting}>
+      <div class="slds-is-relative slds-p-vertical_large" role="status">
+        <lightning-spinner
+          alternative-text="Creating case"
+          size="medium"
+        ></lightning-spinner>
+      </div>
+    </template>
+
+    <template lwc:if={showSuccess}>
+      <p class="slds-text-color_success slds-m-bottom_medium" role="status">
+        Case created successfully.
+      </p>
+    </template>
+
+    <template lwc:if={hasError}>
+      <p class="slds-text-color_error slds-m-bottom_medium" role="alert">
+        Case could not be created. Please try again.
+      </p>
+    </template>
+
+    <lightning-record-edit-form
+      object-api-name={caseObject}
+      onsubmit={handleSubmit}
+      onsuccess={handleSuccess}
+      onerror={handleError}
+    >
+      <lightning-input-field field-name={subjectField}></lightning-input-field>
+      <lightning-input-field
+        field-name={descriptionField}
+      ></lightning-input-field>
+      <lightning-input-field field-name={originField}></lightning-input-field>
+      <lightning-input-field field-name={priorityField}></lightning-input-field>
+
+      <div class="slds-m-top_medium">
+        <lightning-button
+          type="submit"
+          variant="brand"
+          label="Create case"
+          disabled={isSubmitting}
+        ></lightning-button>
+      </div>
+    </lightning-record-edit-form>
+  </section>
+</template>

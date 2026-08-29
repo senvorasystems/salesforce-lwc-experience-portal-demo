@@ -1,0 +1,73 @@
+<template>
+  <section
+    class="slds-box slds-theme_default"
+    aria-labelledby="case-detail-heading"
+  >
+    <h2
+      id="case-detail-heading"
+      class="slds-text-heading_medium slds-m-bottom_medium"
+    >
+      Case details
+    </h2>
+
+    <template lwc:if={showNoSelection}>
+      <p
+        class="slds-text-align_center slds-text-color_weak slds-p-around_large"
+        role="status"
+      >
+        Select a case to view details.
+      </p>
+    </template>
+    <template lwc:elseif={isLoading}>
+      <div class="slds-is-relative slds-p-vertical_x-large" role="status">
+        <lightning-spinner
+          alternative-text="Loading case details"
+          size="medium"
+        ></lightning-spinner>
+      </div>
+    </template>
+    <template lwc:elseif={hasError}>
+      <p class="slds-text-color_error slds-p-around_medium" role="alert">
+        Case details are temporarily unavailable.
+      </p>
+    </template>
+    <template lwc:elseif={hasRecord}>
+      <dl class="slds-list_horizontal slds-wrap">
+        <dt class="slds-item_label slds-truncate" title="Case Number">
+          Case Number
+        </dt>
+        <dd class="slds-item_detail slds-truncate">{caseNumber}</dd>
+
+        <dt class="slds-item_label slds-truncate" title="Subject">Subject</dt>
+        <dd class="slds-item_detail">{subject}</dd>
+
+        <dt class="slds-item_label slds-truncate" title="Status">Status</dt>
+        <dd class="slds-item_detail">{status}</dd>
+
+        <dt class="slds-item_label slds-truncate" title="Priority">Priority</dt>
+        <dd class="slds-item_detail">{priority}</dd>
+
+        <dt class="slds-item_label slds-truncate" title="Origin">Origin</dt>
+        <dd class="slds-item_detail">{origin}</dd>
+
+        <dt class="slds-item_label slds-truncate" title="Created Date">
+          Created Date
+        </dt>
+        <dd class="slds-item_detail">
+          <lightning-formatted-date-time
+            value={createdDate}
+          ></lightning-formatted-date-time>
+        </dd>
+
+        <dt class="slds-item_label slds-truncate" title="Description">
+          Description
+        </dt>
+        <dd class="slds-item_detail">
+          <lightning-formatted-text
+            value={description}
+          ></lightning-formatted-text>
+        </dd>
+      </dl>
+    </template>
+  </section>
+</template>
