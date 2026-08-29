@@ -1,0 +1,31 @@
+<template>
+  <header class="slds-m-bottom_large">
+    <h1 class="slds-text-heading_large">SENVORA Service Experience Portal</h1>
+    <p class="slds-text-body_regular slds-m-top_x-small">
+      Case management reference experience built on Salesforce.
+    </p>
+  </header>
+
+  <main>
+    <div class="slds-grid slds-wrap slds-gutters">
+      <div
+        class="slds-col slds-size_1-of-1 slds-large-size_2-of-3 slds-m-bottom_medium"
+      >
+        <c-senvora-case-workspace
+          oncaseselected={handleCaseSelected}
+        ></c-senvora-case-workspace>
+      </div>
+
+      <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3">
+        <div class="slds-m-bottom_medium">
+          <c-senvora-case-detail
+            record-id={selectedCaseId}
+          ></c-senvora-case-detail>
+        </div>
+        <c-senvora-case-create
+          oncasecreated={handleCaseCreated}
+        ></c-senvora-case-create>
+      </div>
+    </div>
+  </main>
+</template>
